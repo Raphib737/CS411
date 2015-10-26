@@ -1,0 +1,10 @@
+.data{
+	width: 25%;
+	height: 45%;
+	float: left;
+	border-bottom: solid 1px;
+}
+
+.data1{
+	background: yellow;
+}
