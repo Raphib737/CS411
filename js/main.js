@@ -13,6 +13,7 @@ $("input").on("keydown",function search(e) {
 		  	var dayforecast = data["query"]["results"]["channel"]["item"]["forecast"];
 		  	var table = document.getElementById("tbody");
 		  	document.getElementById("tbody").innerHTML="";
+		  	document.getElementById("location").innerHTML=data["query"]["results"]["channel"]["description"]
 		  	for (var i = 0; i<dayforecast.length; i++) {
 		  		var row = table.insertRow(-1);
 				row.insertCell(0).innerHTML = dayforecast[i]['date'];

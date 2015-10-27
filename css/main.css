@@ -1,11 +1,17 @@
 body {
   padding-top: 50px;
 }
+
+
 .starter-template {
   padding: 40px 15px;
   text-align: center;
 }
 
+.weathTable{
+    width: 50%;
+    margin: 0 auto;
+}
 
 .data{
 	width: 50%;
@@ -17,4 +23,10 @@ body {
 
 .data1{
 	background: yellow;
+}
+
+.location{
+	width: 100%;
+	text-align: center;
+	position: center;
 }
