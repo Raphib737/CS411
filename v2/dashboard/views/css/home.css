@@ -49,6 +49,8 @@ body{
 
 
 .seenInfo{
+	width:0px;
+	height:0px;
 	border-bottom : 1px solid blue;
 	margin-left: 10px;
 	padding-left: 10px;

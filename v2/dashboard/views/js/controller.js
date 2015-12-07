@@ -1,33 +1,49 @@
 var dashApp = angular.module('dashboardApp', []);
 
 
+dashApp.controller('SubjectDropDownController', function ($scope) {
+
+});
+
+
+//    .controller('Subject',
+//     ['$rootScope', '$scope', 'myservice',
+//     function ($rootScope, $scope, myservice) {
+//        $scope.myservice = myservice;   
+//     }]);
+
+// testModule
+//    .controller('QuestionsStatusController2',
+//     ['$rootScope', '$scope', 'myservice',
+//     function ($rootScope, $scope, myservice) {
+//       $scope.myservice = myservice;
+//     }]);
+
+// testModule
+//     .service($scope, function() {
+//       $scope.subject = "yyy"s;
+//     });
+
+
+
+
+
+
 dashApp.controller('nyCtrl',function ($scope,$http,$sce,$log) {
 	$scope.currentUrl="";
 	$scope.url="";
-  $scope.items = [
-    'The first choice!',
-    'And another choice for you.',
-    'but wait! A third!'
-  ];
+  $scope.subjects = ["home","world","national","politics","business","technology","science",
+                       "health","sports","arts","fashion","dining","travel"];
+  $scope.selectedItem=$scope.subjects[0];
 
-  $scope.status = {
-    isopen: false
-  };
-
-  $scope.toggled = function(open) {
-    $log.log('Dropdown is now: ', open);
-  };
-
-  $scope.toggleDropdown = function($event) {
-    $event.preventDefault();
-    $event.stopPropagation();
-    $scope.status.isopen = !$scope.status.isopen;
-  };
-
+    $scope.dropboxitemselected = function (item) {
+        $scope.selectedItem = item;
+        
+    }
 
 
 	var api_key="aa20e34fa50838b1e142474106eb1598:14:73335924";
-	var url="http://api.nytimes.com/svc/topstories/v1/health.json?api-key="+api_key;	
+	var url="http://api.nytimes.com/svc/topstories/v1/"+$scope.selectedItem+".json?api-key="+api_key;	
   // 	$.get(url, function($scope,data, status){
 		// $scope.datas=data['results'];
 		// console.log($scope.datas);
@@ -47,10 +63,5 @@ dashApp.controller('nyCtrl',function ($scope,$http,$sce,$log) {
 
   	};
 });
-
-
-
-
-
 
 

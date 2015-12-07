@@ -12,111 +12,28 @@
 	<body ng-controller="nyCtrl">
 		<div id="header">DashBoard</div>
 		<div id="body">
-<!-- 			<div class="dropdown droplocation">
-  				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1 topic" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Top News
-    			<span class="caret"></span>
-  				</button>
-  				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-  					<li><a class="topics">Top News</a></li>
-  					<li role="separator" class="divider"></li>
-    				<li><a class="topics">World</a></li>
-    				<li role="separator" class="divider"></li>
-				    <li><a class="topics">National</a></li>
-				    <li role="separator" class="divider"></li>
-				    <li><a class="topics">technology</a></li>
-				    <li role="separator" class="divider"></li>
-				    <li><a class="topics">Science</a></li>
-				    <li role="separator" class="divider"></li>
-				    <li><a class="topics">Sports</a></li>
 
-				</ul>
-			</div> -->
-			<div>
+		<div>
+	    	<div class="dropdown">
+	        	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+	            	{{selectedItem}}
+	            <span class="caret"></span>
+	        	</button>
+	        	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+	            	<li ng-repeat="a in subjects"><a ng-click="dropboxitemselected(a)">{{a}}</a></li>
+	        	</ul>
+	    	</div>
+		</div>
 
-		    <!-- Single button -->
-		    <div class="btn-group" uib-dropdown is-open="status.isopen">
-		      <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
-		        Button dropdown <span class="caret"></span>
-		      </button>
-		      <ul class="uib-dropdown-menu" role="menu" aria-labelledby="single-button">
-		        <li role="menuitem"><a href="#">Action</a></li>
-		        <li role="menuitem"><a href="#">Another action</a></li>
-		        <li role="menuitem"><a href="#">Something else here</a></li>
-		        <li class="divider"></li>
-		        <li role="menuitem"><a href="#">Separated link</a></li>
-		      </ul>
-		    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- home
-world
-national
-politics
-nyregion
-business
-opinion
-technology
-science
-health
-sports
-arts
-fashion
-dining
-travel
-magazine
-realestate -->
-
-			<div id="data">
-				<div ng-repeat="data in datas">
-					<div class="info" ng-style="infoStyle"ng-click="getDataUrl(data.url);infoStyle={'background-color':'gray'}  " >
-						<b>{{data.title}}</b>
-						<br>{{data.abstract}}
-					</div>		
-				</div>
+		<div id="data">
+			<div ng-repeat="data in datas">
+				<div class="info" ng-style="infoStyle"ng-click="getDataUrl(data.url);infoStyle={'background-color':'gray'}  " >
+					<b>{{data.title}}</b>
+					<br>{{data.abstract}}
+				</div>		
 			</div>
-				<iframe ng-src="{{currentUrl}}" id='iframe'></iframe>
+		</div>
+			<iframe ng-src="{{currentUrl}}" id='iframe'></iframe>
 			
 
 
