@@ -1,0 +1,78 @@
+#left-section {
+	height: 100%;
+	border: 1px solid black;
+	margin-left: 10px;
+	margin-right: 5px;
+}
+
+#right-section {
+	height: 100%;
+	margin-left: 5px;
+	margin-right: 10px;
+}
+
+#navbar-weather{
+	margin-left: 25%;
+	width: 10%;
+	background: blue;
+}
+/*#search{
+	width:70%;
+	height:10%;
+	background-color: gray
+}*/
+#news-section {
+	padding-top:5%;
+	height: 70%;
+	overflow: scroll;
+	border-bottom: 2px solid black;
+}
+
+#stocks-section {
+	height: 25%;
+	overflow: scroll;
+}
+
+#iframe{
+	width:100%;
+	height:100%;
+}
+
+
+.info{
+	border-bottom : 1px solid blue;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top:5px;
+	padding-bottom:10px;
+	color:black;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.info:hover{
+	background-color:#DBDBDB;
+}
+
+.seenInfo{
+	width:0px;
+	height:0px;
+	border-bottom : 1px solid blue;
+	margin-left: 10px;
+	padding-left: 10px;
+	padding-top:5px;
+	padding-bottom:10px;
+	width: 90%;
+	color:black;
+	font-size: 12px;
+	cursor: pointer;
+	background-color: #666666;
+}
+
+p {
+	padding-top: 10px;
+	color:black;
+	font-size: 9px;
+}

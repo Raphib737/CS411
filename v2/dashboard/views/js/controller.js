@@ -1,3 +1,4 @@
+
 var dashApp = angular.module('dashboardApp', []);
 
 
@@ -26,9 +27,6 @@ dashApp.controller('SubjectDropDownController', function ($scope) {
 
 
 
-
-
-
 dashApp.controller('nyCtrl',function ($scope,$http,$sce,$log) {
 	$scope.currentUrl="";
 	$scope.url="";
@@ -49,12 +47,10 @@ dashApp.controller('nyCtrl',function ($scope,$http,$sce,$log) {
 		// console.log($scope.datas);
   // 	});
 	$scope.datas={};
-	console.log("scope.data first value: "+$scope.data);
-  	$http.get(url).success(function(response){
-  		$scope.datas=response['results'];
-  	});
-
-
+  $http.get(url).success(function(response){
+  	$scope.datas=response['results'];
+    $scope.datas['seen']=false
+  });
 
   	$scope.getDataUrl= function(url){
   		$scope.clickedDiv= url;	
