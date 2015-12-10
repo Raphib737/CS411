@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 body{
 	font: 400 12px/1.625 "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -16,357 +17,100 @@ body{
     z-index:1;
     background-color: black;
 }
-
 #title{
-	width: 100%;
 	text-align: center;
-	padding-top:3%;
+/*	padding-top:3%;
 	margin-top: 50px;
-	color: #1F1F21;
+	color: #1F1F21;*/
 }
-+#title > p {
+#title > p {
 	text-align: center;	
 	font-weight: 300;
 	width: 100%;	
 	margin: 0;
 }
 #title2{
-  text-align: center;
+/*  text-align: center;
   width: 100%;
   margin: auto;
-  font-size:  10vh
+  font-size:  10vh*/
+	margin-top: 50px;
+	color: #1F1F21;
 }
 
-#subtitle{
-	font-size: .5em;
+#title > p {
+	font-weight: 300;
+	margin: 0;
 }
 
-#signup{
-	left: 10%;
-	padding-top: 3%;
-	width: 100%;
-	opacity: 5;
+#title > #name {
+	font-size: 40px;
+	color: #1F1F21;
 }
 
-.divider{
-	position:relative;
-	opacity:.9;
-	width: 100%;
-	height: 25px;
-	background-color: black;
+#title > #tagline {
+	font-size: 25px;
+	color: #BDBEC2;
 }
-.about{
-	padding-top: 2.5%;
-	width:100%;
-	height:700px;
-	background-color: white;
-}
-
-.aboutTitle{
-	width: 25%;
-	margin-left: 37%;
-	height: 10%;
-	font-size: 8vh;
-	text-align: center;
-	padding-bottom: 90px;
-	border-bottom: 4px solid #000040;
-}
-
-.aboutDescription{
-	padding-top: 2.5%;
-	padding-left: 10%;
-	padding-right: 10%;
-	text-align: center;
-	padding-bottom: 5%;
-}
-
-.aboutfntsize{
-	font-size: 4vh;
-}
-
-.apiTitle{
-	width: 40%;
-	margin-left: 30%;
-	height: 10%;
-	font-size: 8vh;
-	text-align: center;
-	border-bottom: 4px solid #000040;
-}
-.apisblock{
-	width:100%;
-	height:500px;
-}
-
-.apiPicturenyt{
-	margin-left: 5%;
-	margin-top:  5%;
-	width: 200px;
-	height: 170px;
-	border-radius: 10px;
-}
-.apiPicturey{
-	margin-top:  5%;
-	width: 200px;
-	height: 170px;
-	border-radius: 10px;
-}
-.apiPictureya{
-	margin-left: 5;
-	margin-top:  5%;
-	width: 200px;
-	height: 170px;
-	border-radius: 10px;
-}
-.apiDescription{
-	border-radius: 10px;
-	padding-top: 1%;
-	font-size: 4vh;
-	text-align: center;
-	float: left;
-	width: 350px;
-	height: 500px;
-	margin-top: 2.25%;
-	margin-left: 7%;
-}
-
-#nyt{
-	background:url("./media/newyorktimes.png");
-}
-
-
-
-
-
-
 
 .panel-login {
-	border-color: #ccc;
-	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
-	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	margin-top: 50px;
 }
-.panel-login>.panel-heading {
-	color: #00415d;
-	background-color: #fff;
-	border-color: #fff;
-	text-align:center;
+
+.panel-login > .panel-heading {
+	text-align: center;
 }
-.panel-login>.panel-heading a{
+
+.panel-login > .panel-heading a{
 	text-decoration: none;
-	color: #666;
-	font-weight: bold;
+	color: #BDBEC2;
+	font-weight: normal;
 	font-size: 15px;
-	-webkit-transition: all 0.1s linear;
-	-moz-transition: all 0.1s linear;
-	transition: all 0.1s linear;
 }
-.panel-login>.panel-heading a.active{
-	color: #029f5b;
-	font-size: 18px;
+
+.panel-login > .panel-heading a.active{
+	color: #007AFF;
 }
-.panel-login>.panel-heading hr{
-	margin-top: 10px;
-	margin-bottom: 0px;
-	clear: both;
-	border: 0;
-	height: 1px;
-	background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
-	background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
-	background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
-	background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+
+.panel-login input[type="text"], .panel-login input[type="email"], .panel-login input[type="password"] {
+	height: 50px;
+	border: 1px solid #C7C7CC;
+	font-size: 15px;
 }
-.panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
-	height: 45px;
-	border: 1px solid #ddd;
-	font-size: 16px;
-	-webkit-transition: all 0.1s linear;
-	-moz-transition: all 0.1s linear;
-	transition: all 0.1s linear;
-}
-.panel-login input:hover,
-.panel-login input:focus {
-	outline:none;
+
+.panel-login input:hover, .panel-login input:focus {
+	outline: none;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
-	border-color: #ccc;
 }
+
 .btn-login {
-	background-color: #59B2E0;
+	background-color: #007AFF;
 	outline: none;
 	color: #fff;
-	font-size: 14px;
+	font-size: 15px;
 	height: auto;
 	font-weight: normal;
 	padding: 14px 0;
-	text-transform: uppercase;
-	border-color: #59B2E6;
 }
-.btn-login:hover,
-.btn-login:focus {
+
+.btn-login:hover, .btn-login:focus {
 	color: #fff;
-	background-color: #53A3CD;
-	border-color: #53A3CD;
-}
-.forgot-password {
-	text-decoration: underline;
-	color: #888;
-}
-.forgot-password:hover,
-.forgot-password:focus {
-	text-decoration: underline;
-	color: #666;
+	background-color: #0069DC;
 }
 
 .btn-register {
-	background-color: #1CB94E;
+	background-color: #007AFF;
 	outline: none;
 	color: #fff;
-	font-size: 14px;
+	font-size: 15px;
 	height: auto;
 	font-weight: normal;
 	padding: 14px 0;
-	text-transform: uppercase;
-	border-color: #1CB94A;
 }
-.btn-register:hover,
-.btn-register:focus {
+
+.btn-register:hover, .btn-register:focus {
 	color: #fff;
-	background-color: #1CA347;
-	border-color: #1CA347;
-}
-
-
-
-
-
-/*
-code modified from http://www.onextrapixel.com/2013/01/18/creating-an-html5-responsive-ready-contact-form-with-javascript-detection/
-*/
-
-* {
-	margin:0;
-	padding:0;
-	box-sizing:border-box;
-	-webkit-box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	-webkit-font-smoothing:antialiased;
-	-moz-font-smoothing:antialiased;
-	-o-font-smoothing:antialiased;
-	font-smoothing:antialiased;
-	text-rendering:optimizeLegibility;
-}
-body {
-	font:400 12px/1.625 "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.wrapper {
-	height:500px;
-	max-width: 20%;
-	margin:0 auto;
-	position:relative;
-}
-#contact-form input[type="text"],
-#contact-form input[type="email"],
-#contact-form input[type="tel"],
-#contact-form input[type="url"],
-#contact-form textarea,
-#contact-form button[type="submit"] {
-	font:400 12px/12px "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-#contact-form {
-	text-shadow:0 1px 0 #FFF;
-	border-radius:4px;
-	-webkit-border-radius:4px;
-	-moz-border-radius:4px;
-	background:#F9F9F9;
-	padding:25px;
-}
-#contact-form h3 {
-	text-align: center;
-	color:black;
-	display:block;
-	font-size:28px;
-}
-#contact-form h4 {
-	text-align: center;
-	margin:5px 0 15px;
-	display:block;
-	font-size:13px;
-}
-#contact-form label span {
-	cursor:pointer;
-	color:black;
-	display:block;
-	margin:5px 0;
-	font-weight:900;
-}
-#contact-form input[type="text"],
-#contact-form input[type="email"],
-#contact-form input[type="tel"],
-#contact-form input[type="url"],
-#contact-form textarea {
-	width:150%;
-	box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
-	-webkit-box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
-	-moz-box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
-	border:1px solid #CCC;
-	background:#FFF;
-	margin:0 0 5px;
-	padding:10px;
-	border-radius:5px;
-}
-#contact-form input[type="text"]:hover,
-#contact-form input[type="email"]:hover,
-#contact-form input[type="tel"]:hover,
-#contact-form input[type="url"]:hover,
-#contact-form textarea:hover {
-	-webkit-transition:border-color 0.3s ease-in-out;
-	-moz-transition:border-color 0.3s ease-in-out;
-	transition:border-color 0.3s ease-in-out;
-	border:1px solid #AAA;
-}
-#contact-form textarea {
-	height:100px;
-	max-width:100%;
-}
-#contact-form button[type="submit"] {
-	cursor:pointer;
-	width:50%;
-	border:none;
-	background: blue;
-	/*background-image:linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
-	background-image:-moz-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
-	background-image:-webkit-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);*/
-	color:#FFF;
-	margin:0 0 5px;
-	padding:10px;
-	border-radius:5px;
-}
-#contact-form button[type="submit"]:hover {
-	background-image:linear-gradient(bottom, #9C215A 0%, #A82767 52%);
-	background-image:-moz-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
-	background-image:-webkit-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
-	-webkit-transition:background 0.3s ease-in-out;
-	-moz-transition:background 0.3s ease-in-out;
-	transition:background-color 0.3s ease-in-out;
-}
-#contact-form button[type="submit"]:active {
-	box-shadow:inset 0 1px 3px rgba(0,0,0,0);
-}
-#contact-form input:focus,
-#contact-form textarea:focus {
-	outline:0;
-	border:1px solid #999;
-}
-::-webkit-input-placeholder {
-    color:#888;
-}
-:-moz-placeholder {
-    color:#888;
-}
-::-moz-placeholder {
-    color:#888;
-}
-:-ms-input-placeholder {
-    color:#888;
+	background-color: #0069DC;
 }
