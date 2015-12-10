@@ -1,5 +1,7 @@
 var express = require('express');
 var passport = require('passport');
+var request = require('request');
+var JSON = require('JSON')
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
@@ -9,9 +11,19 @@ var app = express();
 var schema = mongoose.Schema;
 
 
+//Settings
 app.use(express.static('views'));
+app.set('view engine','ejs');
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(cookieParser());
+app.use(expressSession({
+	secret: process.env.SESSION_SECRET || 'secret',
+	resave: false,
+	saveUnitialized: false,
+}));
 
 
+// MongoDB with Mongoose Module
 var UserSchema =  new schema({
 	firstName: {type:String, required: true},
 	lastName: {type: String, required: true},
@@ -42,39 +54,8 @@ process.on('SIGINT', function() {
   }); 
 }); 
 
-app.set('view engine','ejs');
 
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(cookieParser());
-app.use(expressSession({
-	secret: process.env.SESSION_SECRET || 'secret',
-	resave: false,
-	saveUnitialized: false,
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-passport.use(new passportlocal.Strategy(function(email,password,done){
-	if (email == 'admin' && password == 'password'){
-		done(null,{id: email, password: password});
-	} else {
-		done(null,null);
-	}
-}));
-
-passport.serializeUser(function(user,done) {
-	done(null,user.id);
-});
-
-passport.deserializeUser(function(id, done){
-	//query against database 
-	done(null,{ id: id, name: id});
-})
-
-
-
-
+// GET ROUTES
 app.get('/',function(req,res){
 	res.render('index',{
 		isAuthenticated: req.isAuthenticated(),
@@ -82,6 +63,30 @@ app.get('/',function(req,res){
 	});
 });
 
+app.get('/home',function(req,res){
+	request('http://finance.yahoo.com/webservice/v1/symbols/aapl,goog,msft,fb,g/quote?format=json', function (error, response, body) {
+	  if (!error && response.statusCode == 200) {
+	    var obj = JSON.parse(body);
+	    stockData = obj['list']['resources'];
+	    console.log(stockData[0])
+	    res.render('home',{stocks: stockData});
+	  }
+	});
+
+});
+app.get('/invalidPassword', function(req,res){
+	res.render('invalidPassword');
+})
+app.get('/emailUsed', function(req,res){
+	res.render('emailUsed')
+})
+app.get('/logout', function(req, res){
+	req.logout();
+	res.redirect('/');
+});
+
+
+//POST ROUTES
 app.post('/',function(req,res){
 	console.log(req.body);
 	if(req.body.submit == 'Log In'){
@@ -110,33 +115,14 @@ app.post('/',function(req,res){
 				res.redirect('/emailUsed')
 			}else{
 				res.redirect('/');
-			}
+			} 
 			});
 		}
 	};
 })
 
-app.get('/invalidPassword', function(req,res){
-	res.render('invalidPassword');
-})
 
-app.get('/emailUsed', function(req,res){
-	res.render('emailUsed')
-})
-
-
-app.get('/home',function(req,res){
-	 var stockURL = "http://finance.yahoo.com/webservice/v1/symbols/aapl,goog,msft/quote?format=json";
-	 
-	res.render('home')
-});
-
-
-app.get('/logout', function(req, res){
-	req.logout();
-	res.redirect('/');
-});
-
+//Start Server
 app.listen(3000, function() {
 	console.log("Listening on Port: 3000");
 });

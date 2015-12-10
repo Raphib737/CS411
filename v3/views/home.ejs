@@ -1,5 +1,4 @@
 <html ng-app="dashboardApp" lang="en">
-
 	<head>
 	  	<title>Dashboard</title>
 	  	<link rel="stylesheet" type='text/css' href="./css/home.css">
@@ -10,52 +9,56 @@
 	</head>
 
 	<body ng-controller="nyCtrl">
-		<nav class="navbar navbar-default">
+		<nav id="navigation" class="navbar navbar-default">
 			<a id="title" class="navbar-brand">Dashboard</a>
 			    <ul class="nav navbar-nav navbar-right">
-			      <li><button id="signout" type="button" class="btn btn-default">Sign Out</a></li>
+			      <li><button id="signout" type="button" class="btn btn-default">Log Out</a></li>
 			    </ul>
 			  </div>
 		</nav>
 
 		<!--<div id="body">-->
 		<div id="container">
-
-			<div id="search"></div>
 			<div id="left-section" class="col-md-4">
-				<div id="news-section">
-
-
-			    	<div class="dropdown">
-			        	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-			            	{{selectedItem}}
-			            <span class="caret"></span>
-			        	</button>
-			        	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-			            	<li ng-repeat="a in subjects"><a ng-click="dropboxitemselected(a)">{{a}}</a></li>
-			        	</ul>
-			        	<input id="search" type="text" class="form-group" placeholder="Search an article"ng-model="search">
-			    	</div>
-					
-					<div ng-repeat="data in datas | filter: search">
-						<div class="info" ng-style="infoStyle" ng-click="getDataUrl(data.url);infoStyle={'background-color':'#dbdbdb'}  " >
-							<b>{{data.title}}</b>
-							<br>{{data.abstract}}
-						</div>		
-					</div>
+			<div class="header">
+				<div class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{selectedItem}}
+					<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					<li id= "clickables" ng-repeat="a in subjects"><a ng-click="dropboxitemselected(a)">{{a}}</a></li>
+					</ul>
+					<input id="search" type="text" class="form-group" placeholder="Search for keywords"ng-model="search">
+				</div>
+			</div>
+			<div id="news-section">
+						<div ng-repeat="data in datas | filter: search">
+								<div class="info" ng-style="infoStyle" ng-click="getDataUrl(data.url)	;infoStyle={'background-color':'#dbdbdb'}">
+									<b>{{data.title}}</b>
+									<br>{{data.abstract}}
+								</div>		
+							</div>
+						</div>
+				<div class="headerStocks">
+					<span id="stockTitle"> Stocks </span>
 				</div>
 				<div id="stocks-section">
-					<div ng-repeat="stockData in stockDatas">
+						<% for(var i=0; i<stocks.length;i++){ %>
 						<div class="stock-info" ng-style="infoStyle">
-							<b>{{stockData.resource.fields.name}}</b>
-							<br>${{stockData.resource.fields.price}}
+							<b><%= stocks[i].resource.fields.name%></b> : <%= stocks[i].resource.fields.price %> 
+								<% if(stocks[i].resource.fields.change!='' ){%> <%= %> <% } %>
 						</div>
+						<%}%>
 					</div>
 				</div>
 			</div>
 
 			<div id="right-section" class="col-md-7">
-				<iframe ng-src="{{currentUrl}}" id="iframe"></iframe>
+				<div id="weather"><form ng-submit="weather()"><input id="searchWeather" type="text" class="form-group" placeholder="Enter your location" ng-model="weatherInfo"><span class="weatherInform">Date: {{date}} | <b>{{locTitle}}</b> | Description: <b>{{texts}}</b> | High: <b>{{high}}</b> | Low: <b>{{low}}</b></span>
+				</form>
+				</div>
+
+				<iframe ng-src='{{currentUrl}}' id="iframe"></iframe>
 			</div>
 		
 		</div>
