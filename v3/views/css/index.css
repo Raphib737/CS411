@@ -1,5 +1,6 @@
 
 body{
+	font: 400 12px/1.625 "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .navbarextra{
@@ -20,8 +21,15 @@ body{
 	width: 100%;
 	text-align: center;
 	padding-top:3%;
+	margin-top: 50px;
+	color: #1F1F21;
 }
-
++#title > p {
+	text-align: center;	
+	font-weight: 300;
+	width: 100%;	
+	margin: 0;
+}
 #title2{
   text-align: center;
   width: 100%;

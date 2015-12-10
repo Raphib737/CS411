@@ -11,37 +11,34 @@
 
 	<body ng-controller="nyCtrl">
 		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-			 	<div class="navbar-header">
-			    	<a class="navbar-brand" href="home">Dashboard</a>
-			    </div>
-				<div class="form-group">
-			   		<input type="text" class="form-control" placeholder="Search">
-        		</div>	
-
-		  </div>
+			<a id="title" class="navbar-brand">Dashboard</a>
+			    <ul class="nav navbar-nav navbar-right">
+			      <li><button id="signout" type="button" class="btn btn-default">Sign Out</a></li>
+			    </ul>
+			  </div>
 		</nav>
 
 		<!--<div id="body">-->
 		<div id="container">
 
-			<!--<div>
-		    	<div class="dropdown">
-		        	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-		            	{{selectedItem}}
-		            <span class="caret"></span>
-		        	</button>
-		        	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-		            	<li ng-repeat="a in subjects"><a ng-click="dropboxitemselected(a)">{{a}}</a></li>
-		        	</ul>
-		    	</div>
-			</div>-->
 			<div id="search"></div>
 			<div id="left-section" class="col-md-4">
 				<div id="news-section">
-					<input type="text" class="form-control" placeholder="Search an article"ng-model="search">
+
+
+			    	<div class="dropdown">
+			        	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			            	{{selectedItem}}
+			            <span class="caret"></span>
+			        	</button>
+			        	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+			            	<li ng-repeat="a in subjects"><a ng-click="dropboxitemselected(a)">{{a}}</a></li>
+			        	</ul>
+			        	<input id="search" type="text" class="form-group" placeholder="Search an article"ng-model="search">
+			    	</div>
+					
 					<div ng-repeat="data in datas | filter: search">
-						<div class="info" ng-style="infoStyle" ng-click="getDataUrl(data.url);infoStyle={'background-color':'gray'}  " >
+						<div class="info" ng-style="infoStyle" ng-click="getDataUrl(data.url);infoStyle={'background-color':'#dbdbdb'}  " >
 							<b>{{data.title}}</b>
 							<br>{{data.abstract}}
 						</div>		

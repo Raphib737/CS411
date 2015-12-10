@@ -37,9 +37,8 @@ dashApp.controller('nyCtrl',function ($scope,$http,$sce,$log) {
                        "health","sports","arts","fashion","dining","travel"];
   $scope.selectedItem=$scope.subjects[0];
 
-    $scope.dropboxitemselected = function (item) {
+  $scope.dropboxitemselected = function (item) {
         $scope.selectedItem = item;
-        
     }
 
 
