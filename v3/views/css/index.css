@@ -3,10 +3,6 @@ body{
 	font: 400 12px/1.625 "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.navbarextra{
-	margin-bottom: 0%;
-	padding-bottom: 0%;
-}
 #media{
     opacity:0.8;
     position:relative;
@@ -21,10 +17,6 @@ body{
 	text-align: center;
 	color: black;
 }
-#title2{
-	margin-top: 50px;
-	color: #1F1F21;
-}
 
 #title > p {
 	font-weight: 300;
@@ -33,7 +25,7 @@ body{
 
 #title > #name {
 	font-size: 100px;
-	color: #1F1F21;
+	color: #d9d9d9;
 	
 }
 
