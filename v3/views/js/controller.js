@@ -1,20 +1,19 @@
 
 var dashApp = angular.module('dashboardApp', []);
 
-
-dashApp.controller('nyCtrl',function ($scope,$http,$sce,$log) {
+//Main Controller for Home.ejs will populate all instances 
+dashApp.controller('nyCtrl',function ($scope, $http, $sce, $log) {
 	$scope.currentUrl="";
-	$scope.url="";
+	$scope.url       ="";
   $scope.subjects = ["home","world","national","politics","business","technology","science",
                        "health","sports","arts","fashion","dining","travel"];
   $scope.selectedItem=$scope.subjects[0];
   $scope.datas={};
 
-
 //First Instance populating News Feed on the left Side
   var api_key="aa20e34fa50838b1e142474106eb1598:14:73335924";
   var url="http://api.nytimes.com/svc/topstories/v1/"+$scope.selectedItem+".json?api-key="+api_key; 
-  $http.get(url).success(function(response){
+  $http.get(url).success(function(response){ //Api Call to New York Times 
     $scope.datas=response['results'];
   });
 
@@ -40,14 +39,14 @@ dashApp.controller('nyCtrl',function ($scope,$http,$sce,$log) {
       $scope.texts       =dayforecast['text'];
       $scope.high        =dayforecast['high'];
       $scope.low         =dayforecast['low'];
-      $scope.weatherInfo = ""
+      $scope.weatherInfo = "" //Clear SearchBar After user submits the data and it is recorded 
   });
   }
 
   $scope.getDataUrl= function(url){
     $scope.clickedDiv= url; 
     $scope.currentUrl = $sce.trustAsResourceUrl($scope.clickedDiv);
-    };
+  };
 
 
 

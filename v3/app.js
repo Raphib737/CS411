@@ -10,10 +10,11 @@ var  mongoose = require('mongoose')
 var app = express();
 var schema = mongoose.Schema;
 
+//Set Viewports
+app.set('view engine','ejs');
 
 //Settings
 app.use(express.static('views'));
-app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(expressSession({
@@ -23,8 +24,8 @@ app.use(expressSession({
 }));
 
 
-// MongoDB with Mongoose Module
-var UserSchema =  new schema({
+// MongoDB with Mongoose Module & Settings
+var UserSchema =  new schema({ //Using Email as Primary Key
 	firstName: {type:String, required: true},
 	lastName: {type: String, required: true},
 	password: {type: String, required: true},
@@ -72,7 +73,6 @@ app.get('/home',function(req,res){
 	    res.render('home',{stocks: stockData});
 	  }
 	});
-
 });
 app.get('/invalidPassword', function(req,res){
 	res.render('invalidPassword');
@@ -88,7 +88,6 @@ app.get('/logout', function(req, res){
 
 //POST ROUTES
 app.post('/',function(req,res){
-	console.log(req.body);
 	if(req.body.submit == 'Log In'){
 		var data = {"email":req.body.email,"password":req.body.password};
 		User.count(data,function(err,count){
@@ -99,9 +98,9 @@ app.post('/',function(req,res){
 			}
 		});
 	}else{
-		if(req.body.password != req.body.passwordVerify){
+		if(req.body.password != req.body.passwordVerify){ //Checks to see if the input from the forms match
 			res.redirect('invalidPassword')	
-		}else{
+		}else{ //Verified User data attached to schema and added to database
 			var newUser = User({
 				firstName: req.body.firstName,
 				lastName: req.body.lastName,
